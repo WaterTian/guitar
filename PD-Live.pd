@@ -1,4 +1,4 @@
-#N canvas 565 246 865 810 10;
+#N canvas 172 316 865 810 10;
 #X declare -lib moocow;
 #X msg 48 32 close;
 #X floatatom 112 246 5 0 0 0 - - -;
@@ -22,12 +22,14 @@
 #X obj 150 306 abs;
 #X obj 510 327 ctlout 64;
 #X obj 150 282 % 127;
+#X obj 150 388 ctlout 64 2;
+#X obj 226 389 ctlout 64 3;
+#X msg 122 104 devicename /dev/cu.usbmodem1421;
 #X msg 113 78 devicename /dev/cu.usbmodem1411;
-#X obj 150 406 ctlout 64;
 #X connect 0 0 4 0;
 #X connect 2 0 20 0;
 #X connect 3 0 10 0;
-#X connect 3 0 21 0;
+#X connect 3 0 24 0;
 #X connect 4 0 7 0;
 #X connect 4 1 8 0;
 #X connect 4 2 9 0;
@@ -40,8 +42,9 @@
 #X connect 12 0 14 0;
 #X connect 13 0 11 0;
 #X connect 14 0 13 0;
+#X connect 15 0 22 0;
 #X connect 16 0 15 0;
-#X connect 17 0 22 0;
+#X connect 17 0 21 0;
 #X connect 18 0 17 0;
 #X connect 20 0 18 0;
-#X connect 21 0 4 0;
+#X connect 24 0 4 0;

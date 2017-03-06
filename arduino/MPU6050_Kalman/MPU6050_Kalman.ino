@@ -25,6 +25,19 @@ float Px=1, Rx, Kx, Sx, Vx, Qx;             //x轴卡尔曼变量
 float Py=1, Ry, Ky, Sy, Vy, Qy;             //y轴卡尔曼变量
 float Pz=1, Rz, Kz, Sz, Vz, Qz;             //z轴卡尔曼变量
 
+
+
+///REB LED
+int led1 = 9;
+int led2 = 10;
+int led3 = 11;
+void setColor(int red,int green,int blue)
+{
+  analogWrite(led1,255-red);
+  analogWrite(led2,255-green);
+  analogWrite(led3,255-blue);
+}
+
 void setup()
 {
     Wire.begin();
@@ -43,6 +56,12 @@ void setup()
     
     axo /= times; ayo /= times; azo /= times; //计算加速度计偏移
     gxo /= times; gyo /= times; gzo /= times; //计算陀螺仪偏移
+
+
+    ////RGBLED
+    pinMode(led1,OUTPUT);
+    pinMode(led2,OUTPUT);
+    pinMode(led3,OUTPUT);
 }
 
 void loop()
@@ -158,5 +177,13 @@ void loop()
 //    Serial.print(gyroy);Serial.print(" ");
 //    Serial.print(gyroz);Serial.print(" ");
 //    Serial.println();
-    
+
+
+///RGBLED
+  int _r=(agx+90)/180*255;
+  int _g=(agy+90)/180*255;
+  int _b=(agz+90)/180*255;
+  setColor(_r,_g,_b);
+
+
 }
